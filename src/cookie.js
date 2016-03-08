@@ -1,24 +1,34 @@
 export class Cookie {
-
+    
+    /**
+     * Get a cookie by its name
+     */
     static get(name) {
         let cookies = this.all();
 
-        if (cookies) {
+        if (cookies && cookies[name]) {
             return cookies[name];
         }
 
         return null;
     }
-
+    
+    /**
+     * Set a cookie
+     */
     static set(name, value, options = {}) {
         let str = `${this.encode(name)}=${this.encode(value)}`;
 
         if (value == null) {
             options.expiry = -1;
         }
-
-        if (options.expiry && !options.expires) {
-            options.expires = new Date(+new Date + options.expiry);
+        
+        /**
+         * Expiry date in hours
+         */
+        if (options.expiry) {
+            let today = new Date();
+            options.expires = today.setHours(today.getHours() + options.expiry);
         }
 
         if (options.path) {
@@ -39,7 +49,17 @@ export class Cookie {
 
         document.cookie = str;
     }
-
+    
+    /**
+     * Deletes a cookie by setting its expiry date in the past
+     */
+    static delete(name) {
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+    
+    /**
+     * Get all set cookies and return an array
+     */
     static all() {
         return this.parse(document.cookie);
     }
