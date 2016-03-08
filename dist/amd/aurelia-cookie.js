@@ -62,7 +62,7 @@ define(['exports'], function (exports) {
             return this.parse(document.cookie);
         };
 
-        Cookie.prototype.parse = function parse(str) {
+        Cookie.parse = function parse(str) {
             var obj = {};
             var pairs = str.split(/ *; */);
             var pair;
@@ -79,7 +79,7 @@ define(['exports'], function (exports) {
             return obj;
         };
 
-        Cookie.prototype.encode = function encode(value) {
+        Cookie.encode = function encode(value) {
             try {
                 return encodeURIComponent(value);
             } catch (e) {
@@ -87,7 +87,7 @@ define(['exports'], function (exports) {
             }
         };
 
-        Cookie.prototype.decode = function decode(value) {
+        Cookie.decode = function decode(value) {
             try {
                 return decodeURIComponent(value);
             } catch (e) {

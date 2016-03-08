@@ -20,9 +20,9 @@ declare module 'aurelia-cookie' {
          * Get all set cookies and return an array
          */
     static all(): any;
-    parse(str: any): any;
-    encode(value: any): any;
-    decode(value: any): any;
+    static parse(str: any): any;
+    static encode(value: any): any;
+    static decode(value: any): any;
   }
   export function configure(aurelia: any): any;
 }

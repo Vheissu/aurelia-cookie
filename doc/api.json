@@ -15,11 +15,38 @@
       },
       "children": [
         {
+          "id": 15,
+          "name": "all",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isStatic": true,
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 16,
+              "name": "all",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Get all set cookies and return an array"
+              },
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
           "id": 23,
           "name": "decode",
           "kind": 2048,
           "kindString": "Method",
           "flags": {
+            "isStatic": true,
             "isExported": true
           },
           "signatures": [
@@ -42,102 +69,6 @@
                   }
                 }
               ],
-              "type": {
-                "type": "instrinct",
-                "name": "any"
-              }
-            }
-          ]
-        },
-        {
-          "id": 20,
-          "name": "encode",
-          "kind": 2048,
-          "kindString": "Method",
-          "flags": {
-            "isExported": true
-          },
-          "signatures": [
-            {
-              "id": 21,
-              "name": "encode",
-              "kind": 4096,
-              "kindString": "Call signature",
-              "flags": {},
-              "parameters": [
-                {
-                  "id": 22,
-                  "name": "value",
-                  "kind": 32768,
-                  "kindString": "Parameter",
-                  "flags": {},
-                  "type": {
-                    "type": "instrinct",
-                    "name": "any"
-                  }
-                }
-              ],
-              "type": {
-                "type": "instrinct",
-                "name": "any"
-              }
-            }
-          ]
-        },
-        {
-          "id": 17,
-          "name": "parse",
-          "kind": 2048,
-          "kindString": "Method",
-          "flags": {
-            "isExported": true
-          },
-          "signatures": [
-            {
-              "id": 18,
-              "name": "parse",
-              "kind": 4096,
-              "kindString": "Call signature",
-              "flags": {},
-              "parameters": [
-                {
-                  "id": 19,
-                  "name": "str",
-                  "kind": 32768,
-                  "kindString": "Parameter",
-                  "flags": {},
-                  "type": {
-                    "type": "instrinct",
-                    "name": "any"
-                  }
-                }
-              ],
-              "type": {
-                "type": "instrinct",
-                "name": "any"
-              }
-            }
-          ]
-        },
-        {
-          "id": 15,
-          "name": "all",
-          "kind": 2048,
-          "kindString": "Method",
-          "flags": {
-            "isStatic": true,
-            "isExported": true
-          },
-          "signatures": [
-            {
-              "id": 16,
-              "name": "all",
-              "kind": 4096,
-              "kindString": "Call signature",
-              "flags": {},
-              "comment": {
-                "shortText": "Get all set cookies and return an array"
-              },
               "type": {
                 "type": "instrinct",
                 "name": "any"
@@ -185,6 +116,42 @@
           ]
         },
         {
+          "id": 20,
+          "name": "encode",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isStatic": true,
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 21,
+              "name": "encode",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 22,
+                  "name": "value",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
           "id": 4,
           "name": "get",
           "kind": 2048,
@@ -207,6 +174,42 @@
                 {
                   "id": 6,
                   "name": "name",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "instrinct",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "instrinct",
+                "name": "any"
+              }
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "parse",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isStatic": true,
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 18,
+              "name": "parse",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "parameters": [
+                {
+                  "id": 19,
+                  "name": "str",
                   "kind": 32768,
                   "kindString": "Parameter",
                   "flags": {},
@@ -292,12 +295,12 @@
           "title": "Methods",
           "kind": 2048,
           "children": [
-            23,
-            20,
-            17,
             15,
+            23,
             12,
+            20,
             4,
+            17,
             7
           ]
         }

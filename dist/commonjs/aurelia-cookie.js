@@ -61,7 +61,7 @@ var Cookie = (function () {
         return this.parse(document.cookie);
     };
 
-    Cookie.prototype.parse = function parse(str) {
+    Cookie.parse = function parse(str) {
         var obj = {};
         var pairs = str.split(/ *; */);
         var pair;
@@ -78,7 +78,7 @@ var Cookie = (function () {
         return obj;
     };
 
-    Cookie.prototype.encode = function encode(value) {
+    Cookie.encode = function encode(value) {
         try {
             return encodeURIComponent(value);
         } catch (e) {
@@ -86,7 +86,7 @@ var Cookie = (function () {
         }
     };
 
-    Cookie.prototype.decode = function decode(value) {
+    Cookie.decode = function decode(value) {
         try {
             return decodeURIComponent(value);
         } catch (e) {

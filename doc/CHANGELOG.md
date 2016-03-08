@@ -1,3 +1,11 @@
+### 1.0.3 (2016-03-08)
+
+
+#### Bug Fixes
+
+* **all:** make all non static methods static ([56af6035](git+https://github.com/Vheissu/aurelia-cookie.git/commit/56af6035055f6439ff3705fbdc2143011a77ffb6))
+
+
 ### 1.0.2 (2016-03-08)
 
 

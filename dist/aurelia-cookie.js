@@ -65,7 +65,7 @@ export class Cookie {
         return this.parse(document.cookie);
     }
 
-    parse(str) {
+    static parse(str) {
         var obj = {};
         var pairs = str.split(/ *; */);
         var pair;
@@ -82,7 +82,7 @@ export class Cookie {
         return obj;
     }
 
-    encode(value) {
+    static encode(value) {
         try {
             return encodeURIComponent(value);
         } catch (e) {
@@ -90,7 +90,7 @@ export class Cookie {
         }
     }
 
-    decode(value) {
+    static decode(value) {
         try {
             return decodeURIComponent(value);
         } catch (e) {
