@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.configure = configure;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -12,7 +13,7 @@ var Cookie = (function () {
     Cookie.get = function get(name) {
         var cookies = this.all();
 
-        if (cookies) {
+        if (cookies && cookies[name]) {
             return cookies[name];
         }
 
@@ -28,8 +29,9 @@ var Cookie = (function () {
             options.expiry = -1;
         }
 
-        if (options.expiry && !options.expires) {
-            options.expires = new Date(+new Date() + options.expiry);
+        if (options.expiry) {
+            var today = new Date();
+            options.expires = today.setHours(today.getHours() + options.expiry);
         }
 
         if (options.path) {
@@ -49,6 +51,10 @@ var Cookie = (function () {
         }
 
         document.cookie = str;
+    };
+
+    Cookie['delete'] = function _delete(name) {
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     };
 
     Cookie.all = function all() {
@@ -90,5 +96,11 @@ var Cookie = (function () {
 
     return Cookie;
 })();
+
+exports.Cookie = Cookie;
+
+function configure(aurelia) {
+    aurelia.container.registerSingleton(Cookie, new Cookie());
+}
 
 exports.Cookie = Cookie;
