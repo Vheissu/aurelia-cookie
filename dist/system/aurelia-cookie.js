@@ -1,20 +1,18 @@
-System.register([], function (_export) {
-    'use strict';
+'use strict';
 
+System.register([], function (_export, _context) {
     var Cookie;
 
-    _export('configure', configure);
-
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-    function configure(aurelia) {
-        aurelia.container.registerSingleton(Cookie, new Cookie());
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
     }
 
     return {
         setters: [],
         execute: function () {
-            Cookie = (function () {
+            _export('Cookie', _export('Cookie', Cookie = function () {
                 function Cookie() {
                     _classCallCheck(this, Cookie);
                 }
@@ -65,7 +63,7 @@ System.register([], function (_export) {
                     document.cookie = str;
                 };
 
-                Cookie['delete'] = function _delete(name) {
+                Cookie.delete = function _delete(name) {
                     document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                 };
 
@@ -107,9 +105,15 @@ System.register([], function (_export) {
                 };
 
                 return Cookie;
-            })();
+            }()));
 
             _export('Cookie', Cookie);
+
+            function configure(aurelia) {
+                aurelia.container.registerSingleton(Cookie, new Cookie());
+            }
+
+            _export('configure', configure);
 
             _export('Cookie', Cookie);
         }

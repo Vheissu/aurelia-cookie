@@ -1,12 +1,18 @@
 define(['exports'], function (exports) {
     'use strict';
 
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
     exports.configure = configure;
 
-    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
 
-    var Cookie = (function () {
+    var Cookie = exports.Cookie = function () {
         function Cookie() {
             _classCallCheck(this, Cookie);
         }
@@ -57,7 +63,7 @@ define(['exports'], function (exports) {
             document.cookie = str;
         };
 
-        Cookie['delete'] = function _delete(name) {
+        Cookie.delete = function _delete(name) {
             document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         };
 
@@ -99,9 +105,7 @@ define(['exports'], function (exports) {
         };
 
         return Cookie;
-    })();
-
-    exports.Cookie = Cookie;
+    }();
 
     function configure(aurelia) {
         aurelia.container.registerSingleton(Cookie, new Cookie());

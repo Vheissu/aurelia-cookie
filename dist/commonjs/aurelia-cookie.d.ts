@@ -9,7 +9,7 @@ declare module 'aurelia-cookie' {
     /**
          * Set a cookie
          */
-    static set(name: any, value: any, options?: any): any;
+    static set(name: any, value: any, options: any?): any;
     
     /**
          * Deletes a cookie by setting its expiry date in the past
@@ -25,4 +25,7 @@ declare module 'aurelia-cookie' {
     static decode(value: any): any;
   }
   export function configure(aurelia: any): any;
+  export {
+    Cookie
+  };
 }

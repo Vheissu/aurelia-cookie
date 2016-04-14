@@ -1,9 +1,5 @@
 
-export class Cookie {
-    
-    /**
-     * Get a cookie by its name
-     */
+export let Cookie = class Cookie {
     static get(name) {
         let cookies = this.all();
 
@@ -13,38 +9,32 @@ export class Cookie {
 
         return null;
     }
-    
-    /**
-     * Set a cookie
-     */
+
     static set(name, value, options = {}) {
-        let str = `${this.encode(name)}=${this.encode(value)}`;
+        let str = `${ this.encode(name) }=${ this.encode(value) }`;
 
         if (value == null) {
             options.expiry = -1;
         }
-        
-        /**
-         * Expiry date in hours
-         */
-		if (options.expiry >= 0 && !options.expires) {
-			let expires = new Date();
-			
-			expires.setHours(expires.getHours() + options.expiry);
-			
-			options.expires = expires;
-		}
+
+        if (options.expiry >= 0 && !options.expires) {
+            let expires = new Date();
+
+            expires.setHours(expires.getHours() + options.expiry);
+
+            options.expires = expires;
+        }
 
         if (options.path) {
-            str += `; path=${options.path}`;
+            str += `; path=${ options.path }`;
         }
 
         if (options.domain) {
-            str += `; domain=${options.domain}`;
+            str += `; domain=${ options.domain }`;
         }
 
         if (options.expires) {
-            str += `; expires=${options.expires.toUTCString()}`;
+            str += `; expires=${ options.expires.toUTCString() }`;
         }
 
         if (options.secure) {
@@ -53,17 +43,11 @@ export class Cookie {
 
         document.cookie = str;
     }
-    
-    /**
-     * Deletes a cookie by setting its expiry date in the past
-     */
+
     static delete(name) {
         document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
-    
-    /**
-     * Get all set cookies and return an array
-     */
+
     static all() {
         return this.parse(document.cookie);
     }
@@ -100,10 +84,10 @@ export class Cookie {
             return null;
         }
     }
-}
+};
 
 export function configure(aurelia) {
     aurelia.container.registerSingleton(Cookie, new Cookie());
 }
 
-export {Cookie};
+export { Cookie };
