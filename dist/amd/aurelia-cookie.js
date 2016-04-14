@@ -30,9 +30,12 @@ define(['exports'], function (exports) {
                 options.expiry = -1;
             }
 
-            if (options.expiry) {
-                var today = new Date();
-                options.expires = today.setHours(today.getHours() + options.expiry);
+            if (options.expiry >= 0 && !options.expires) {
+                var expires = new Date();
+
+                expires.setHours(expires.getHours() + options.expiry);
+
+                options.expires = expires;
             }
 
             if (options.path) {
@@ -73,7 +76,7 @@ define(['exports'], function (exports) {
 
             for (var i = 0; i < pairs.length; ++i) {
                 pair = pairs[i].split('=');
-                obj[decode(pair[0])] = decode(pair[1]);
+                obj[this.decode(pair[0])] = this.decode(pair[1]);
             }
 
             return obj;
