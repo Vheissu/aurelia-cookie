@@ -2,7 +2,7 @@
   "name": "aurelia-cookie",
   "description": "A simplistic ES2015 class for working with cookies in Aurelia (or any modern Javascript application).",
   "version": "1.0.4",
-  "main": "dist/commonjs/index.js",
+  "main": "dist/commonjs/aurelia-cookie.js",
   "scripts": {
     "test": "gulp test"
   },
