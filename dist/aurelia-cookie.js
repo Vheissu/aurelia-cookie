@@ -1,7 +1,7 @@
 
 export class Cookie {
-    
     /**
+     *
      * Get a cookie by its name
      */
     static get(name) {
@@ -20,20 +20,19 @@ export class Cookie {
     static set(name, value, options = {}) {
         let str = `${this.encode(name)}=${this.encode(value)}`;
 
-        if (value == null) {
+        if (value === null) {
             options.expiry = -1;
         }
         
         /**
          * Expiry date in hours
          */
-		if (options.expiry >= 0 && !options.expires) {
-			let expires = new Date();
-			
-			expires.setHours(expires.getHours() + options.expiry);
-			
-			options.expires = expires;
-		}
+        if (options.expiry >= 0 && !options.expires) {
+            let expires = new Date();
+
+            expires.setHours(expires.getHours() + options.expiry);
+            options.expires = expires;
+        }
 
         if (options.path) {
             str += `; path=${options.path}`;
@@ -69,11 +68,11 @@ export class Cookie {
     }
 
     static parse(str) {
-        var obj = {};
-        var pairs = str.split(/ *; */);
-        var pair;
+        let obj = {};
+        let pairs = str.split(/ *; */);
+        let pair;
 
-        if ('' == pairs[0]) {
+        if (pairs[0] === '') {
             return obj;
         }
 

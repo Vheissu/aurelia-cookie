@@ -4,17 +4,12 @@ define(['exports'], function (exports) {
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
-    exports.configure = configure;
 
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
+    
 
     var Cookie = exports.Cookie = function () {
         function Cookie() {
-            _classCallCheck(this, Cookie);
+            
         }
 
         Cookie.get = function get(name) {
@@ -32,7 +27,7 @@ define(['exports'], function (exports) {
 
             var str = this.encode(name) + '=' + this.encode(value);
 
-            if (value == null) {
+            if (value === null) {
                 options.expiry = -1;
             }
 
@@ -40,7 +35,6 @@ define(['exports'], function (exports) {
                 var expires = new Date();
 
                 expires.setHours(expires.getHours() + options.expiry);
-
                 options.expires = expires;
             }
 
@@ -74,9 +68,9 @@ define(['exports'], function (exports) {
         Cookie.parse = function parse(str) {
             var obj = {};
             var pairs = str.split(/ *; */);
-            var pair;
+            var pair = void 0;
 
-            if ('' == pairs[0]) {
+            if (pairs[0] === '') {
                 return obj;
             }
 
@@ -106,10 +100,4 @@ define(['exports'], function (exports) {
 
         return Cookie;
     }();
-
-    function configure(aurelia) {
-        aurelia.container.registerSingleton(Cookie, new Cookie());
-    }
-
-    exports.Cookie = Cookie;
 });

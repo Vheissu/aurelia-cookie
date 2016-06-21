@@ -1,40 +1,46 @@
 
-export let Cookie = class Cookie {
-    static get(name) {
-        let cookies = this.all();
+
+export var Cookie = function () {
+    function Cookie() {
+        
+    }
+
+    Cookie.get = function get(name) {
+        var cookies = this.all();
 
         if (cookies && cookies[name]) {
             return cookies[name];
         }
 
         return null;
-    }
+    };
 
-    static set(name, value, options = {}) {
-        let str = `${ this.encode(name) }=${ this.encode(value) }`;
+    Cookie.set = function set(name, value) {
+        var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
-        if (value == null) {
+        var str = this.encode(name) + '=' + this.encode(value);
+
+        if (value === null) {
             options.expiry = -1;
         }
 
         if (options.expiry >= 0 && !options.expires) {
-            let expires = new Date();
+            var expires = new Date();
 
             expires.setHours(expires.getHours() + options.expiry);
-
             options.expires = expires;
         }
 
         if (options.path) {
-            str += `; path=${ options.path }`;
+            str += '; path=' + options.path;
         }
 
         if (options.domain) {
-            str += `; domain=${ options.domain }`;
+            str += '; domain=' + options.domain;
         }
 
         if (options.expires) {
-            str += `; expires=${ options.expires.toUTCString() }`;
+            str += '; expires=' + options.expires.toUTCString();
         }
 
         if (options.secure) {
@@ -42,52 +48,48 @@ export let Cookie = class Cookie {
         }
 
         document.cookie = str;
-    }
+    };
 
-    static delete(name) {
+    Cookie.delete = function _delete(name) {
         document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    }
+    };
 
-    static all() {
+    Cookie.all = function all() {
         return this.parse(document.cookie);
-    }
+    };
 
-    static parse(str) {
+    Cookie.parse = function parse(str) {
         var obj = {};
         var pairs = str.split(/ *; */);
-        var pair;
+        var pair = void 0;
 
-        if ('' == pairs[0]) {
+        if (pairs[0] === '') {
             return obj;
         }
 
-        for (let i = 0; i < pairs.length; ++i) {
+        for (var i = 0; i < pairs.length; ++i) {
             pair = pairs[i].split('=');
             obj[this.decode(pair[0])] = this.decode(pair[1]);
         }
 
         return obj;
-    }
+    };
 
-    static encode(value) {
+    Cookie.encode = function encode(value) {
         try {
             return encodeURIComponent(value);
         } catch (e) {
             return null;
         }
-    }
+    };
 
-    static decode(value) {
+    Cookie.decode = function decode(value) {
         try {
             return decodeURIComponent(value);
         } catch (e) {
             return null;
         }
-    }
-};
+    };
 
-export function configure(aurelia) {
-    aurelia.container.registerSingleton(Cookie, new Cookie());
-}
-
-export { Cookie };
+    return Cookie;
+}();

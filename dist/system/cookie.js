@@ -5,18 +5,14 @@ System.register([], function (_export, _context) {
 
     var Cookie;
 
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
+    
 
     return {
         setters: [],
         execute: function () {
-            _export('Cookie', _export('Cookie', Cookie = function () {
+            _export('Cookie', Cookie = function () {
                 function Cookie() {
-                    _classCallCheck(this, Cookie);
+                    
                 }
 
                 Cookie.get = function get(name) {
@@ -34,7 +30,7 @@ System.register([], function (_export, _context) {
 
                     var str = this.encode(name) + '=' + this.encode(value);
 
-                    if (value == null) {
+                    if (value === null) {
                         options.expiry = -1;
                     }
 
@@ -42,7 +38,6 @@ System.register([], function (_export, _context) {
                         var expires = new Date();
 
                         expires.setHours(expires.getHours() + options.expiry);
-
                         options.expires = expires;
                     }
 
@@ -76,9 +71,9 @@ System.register([], function (_export, _context) {
                 Cookie.parse = function parse(str) {
                     var obj = {};
                     var pairs = str.split(/ *; */);
-                    var pair;
+                    var pair = void 0;
 
-                    if ('' == pairs[0]) {
+                    if (pairs[0] === '') {
                         return obj;
                     }
 
@@ -107,15 +102,7 @@ System.register([], function (_export, _context) {
                 };
 
                 return Cookie;
-            }()));
-
-            _export('Cookie', Cookie);
-
-            function configure(aurelia) {
-                aurelia.container.registerSingleton(Cookie, new Cookie());
-            }
-
-            _export('configure', configure);
+            }());
 
             _export('Cookie', Cookie);
         }
