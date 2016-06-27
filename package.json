@@ -25,7 +25,7 @@
   "jspm": {
     "registry": "npm",
     "jspmPackage": true,
-    "main": "aurelia-cookie",
+    "main": "index",
     "format": "amd",
     "directories": {
       "dist": "dist/amd"
