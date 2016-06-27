@@ -1,18 +1,21 @@
 'use strict';
 
-System.register(['./aurelia-cookie'], function (_export, _context) {
-  "use strict";
+System.register(['./cookie'], function (_export, _context) {
+    "use strict";
 
-  return {
-    setters: [function (_aureliaCookie) {
-      var _exportObj = {};
+    var Cookie;
+    return {
+        setters: [function (_cookie) {
+            Cookie = _cookie.Cookie;
+        }],
+        execute: function () {
+            function configure(aurelia) {
+                aurelia.container.registerSingleton(Cookie, new Cookie());
+            }
 
-      for (var _key in _aureliaCookie) {
-        if (_key !== "default") _exportObj[_key] = _aureliaCookie[_key];
-      }
+            _export('configure', configure);
 
-      _export(_exportObj);
-    }],
-    execute: function () {}
-  };
+            _export('Cookie', Cookie);
+        }
+    };
 });

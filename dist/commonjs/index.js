@@ -1,17 +1,15 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
+exports.Cookie = undefined;
+exports.configure = configure;
 
-var _aureliaCookie = require('./aurelia-cookie');
+var _cookie = require('./cookie');
 
-Object.keys(_aureliaCookie).forEach(function (key) {
-  if (key === "default") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _aureliaCookie[key];
-    }
-  });
-});
+function configure(aurelia) {
+    aurelia.container.registerSingleton(_cookie.Cookie, new _cookie.Cookie());
+}
+
+exports.Cookie = _cookie.Cookie;

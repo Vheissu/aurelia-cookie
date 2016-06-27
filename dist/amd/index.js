@@ -1,16 +1,14 @@
-define(['exports', './aurelia-cookie'], function (exports, _aureliaCookie) {
-  'use strict';
+define(['exports', './cookie'], function (exports, _cookie) {
+    'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  Object.keys(_aureliaCookie).forEach(function (key) {
-    if (key === "default") return;
-    Object.defineProperty(exports, key, {
-      enumerable: true,
-      get: function () {
-        return _aureliaCookie[key];
-      }
+    Object.defineProperty(exports, "__esModule", {
+        value: true
     });
-  });
+    exports.Cookie = undefined;
+    exports.configure = configure;
+    function configure(aurelia) {
+        aurelia.container.registerSingleton(_cookie.Cookie, new _cookie.Cookie());
+    }
+
+    exports.Cookie = _cookie.Cookie;
 });

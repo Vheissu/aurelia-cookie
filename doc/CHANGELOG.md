@@ -1,3 +1,8 @@
+<a name="1.0.7"></a>
+## [1.0.7](https://github.com/Vheissu/aurelia-cookie/compare/1.0.6...v1.0.7) (2016-06-27)
+
+
+
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/Vheissu/aurelia-cookie/compare/1.0.5...v1.0.6) (2016-06-21)
 
