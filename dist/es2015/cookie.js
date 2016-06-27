@@ -42,8 +42,14 @@ export let Cookie = class Cookie {
         document.cookie = str;
     }
 
-    static delete(name) {
-        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    static delete(name, domain = null) {
+        let cookieString = `${ name } =;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+
+        if (domain) {
+            cookieString += `; domain=${ domain }`;
+        }
+
+        document.cookie = cookieString;
     }
 
     static all() {

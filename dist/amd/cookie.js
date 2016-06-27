@@ -58,7 +58,15 @@ define(['exports'], function (exports) {
         };
 
         Cookie.delete = function _delete(name) {
-            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            var domain = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+            var cookieString = name + ' =;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+
+            if (domain) {
+                cookieString += '; domain=' + domain;
+            }
+
+            document.cookie = cookieString;
         };
 
         Cookie.all = function all() {

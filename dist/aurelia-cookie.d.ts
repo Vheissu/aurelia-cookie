@@ -14,7 +14,7 @@ export declare class Cookie {
   /**
        * Deletes a cookie by setting its expiry date in the past
        */
-  static delete(name?: any): any;
+  static delete(name?: any, domain?: any): any;
   
   /**
        * Get all set cookies and return an array
