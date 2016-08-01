@@ -3,14 +3,18 @@ export let Cookie = class Cookie {
         let cookies = this.all();
 
         if (cookies && cookies[name]) {
-            return cookies[name];
+            try {
+                return JSON.parse(cookies[name]);
+            } catch (ex) {
+                return cookies[name];
+            }
         }
 
         return null;
     }
 
     static set(name, value, options = {}) {
-        let str = `${ this.encode(name) }=${ this.encode(value) }`;
+        let str = `${ this.encode(name) }=${ this.encode(JSON.stringify(value)) }`;
 
         if (value === null) {
             options.expiry = -1;

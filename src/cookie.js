@@ -7,22 +7,27 @@ export class Cookie {
         let cookies = this.all();
 
         if (cookies && cookies[name]) {
-            return cookies[name];
+            try {
+                return JSON.parse(cookies[name]);
+            }
+            catch (ex) {
+                return cookies[name];
+            }
         }
 
         return null;
     }
-    
+
     /**
      * Set a cookie
      */
     static set(name, value, options = {}) {
-        let str = `${this.encode(name)}=${this.encode(value)}`;
+        let str = `${this.encode(name)}=${this.encode(JSON.stringify(value))}`;
 
         if (value === null) {
             options.expiry = -1;
         }
-        
+
         /**
          * Expiry date in hours
          */
@@ -51,7 +56,7 @@ export class Cookie {
 
         document.cookie = str;
     }
-    
+
     /**
      * Deletes a cookie by setting its expiry date in the past
      */
@@ -64,7 +69,7 @@ export class Cookie {
 
         document.cookie = cookieString;
     }
-    
+
     /**
      * Get all set cookies and return an array
      */

@@ -16,7 +16,11 @@ var Cookie = exports.Cookie = function () {
         var cookies = this.all();
 
         if (cookies && cookies[name]) {
-            return cookies[name];
+            try {
+                return JSON.parse(cookies[name]);
+            } catch (ex) {
+                return cookies[name];
+            }
         }
 
         return null;
@@ -25,7 +29,7 @@ var Cookie = exports.Cookie = function () {
     Cookie.set = function set(name, value) {
         var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
-        var str = this.encode(name) + '=' + this.encode(value);
+        var str = this.encode(name) + '=' + this.encode(JSON.stringify(value));
 
         if (value === null) {
             options.expiry = -1;
