@@ -1,14 +1,9 @@
-define(['exports', './cookie'], function (exports, _cookie) {
-    'use strict';
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-    exports.Cookie = undefined;
-    exports.configure = configure;
+define(["require", "exports", './cookie'], function (require, exports, cookie_1) {
+    "use strict";
+    exports.Cookie = cookie_1.Cookie;
     function configure(aurelia) {
-        aurelia.container.registerSingleton(_cookie.Cookie, new _cookie.Cookie());
+        aurelia.container.registerSingleton(cookie_1.Cookie, new cookie_1.Cookie());
     }
-
-    exports.Cookie = _cookie.Cookie;
+    exports.configure = configure;
 });
+//# sourceMappingURL=index.js.map

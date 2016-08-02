@@ -1,118 +1,88 @@
-'use strict';
-
-System.register([], function (_export, _context) {
+System.register([], function(exports_1, context_1) {
     "use strict";
-
+    var __moduleName = context_1 && context_1.id;
     var Cookie;
-
-    
-
     return {
-        setters: [],
-        execute: function () {
-            _export('Cookie', Cookie = function () {
+        setters:[],
+        execute: function() {
+            Cookie = (function () {
                 function Cookie() {
-                    
                 }
-
-                Cookie.get = function get(name) {
+                Cookie.get = function (name) {
                     var cookies = this.all();
-
                     if (cookies && cookies[name]) {
                         return cookies[name];
                     }
-
                     return null;
                 };
-
-                Cookie.set = function set(name, value) {
-                    var options = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-                    var str = this.encode(name) + '=' + this.encode(value);
-
+                Cookie.set = function (name, value, options) {
+                    var str = this.encode(name) + "=" + this.encode(value);
                     if (value === null) {
                         options.expiry = -1;
                     }
-
                     if (options.expiry >= 0 && !options.expires) {
                         var expires = new Date();
-
                         expires.setHours(expires.getHours() + options.expiry);
                         options.expires = expires;
                     }
-
                     if (options.path) {
-                        str += '; path=' + options.path;
+                        str += "; path=" + options.path;
                     }
-
                     if (options.domain) {
-                        str += '; domain=' + options.domain;
+                        str += "; domain=" + options.domain;
                     }
-
                     if (options.expires) {
-                        str += '; expires=' + options.expires.toUTCString();
+                        str += "; expires=" + options.expires.toUTCString();
                     }
-
                     if (options.secure) {
                         str += '; secure';
                     }
-
                     document.cookie = str;
                 };
-
-                Cookie.delete = function _delete(name) {
-                    var domain = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-                    var cookieString = name + ' =;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-
+                Cookie.delete = function (name, domain) {
+                    if (domain === void 0) { domain = null; }
+                    var cookieString = name + " =;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
                     if (domain) {
-                        cookieString += '; domain=' + domain;
+                        cookieString += "; domain=" + domain;
                     }
-
                     document.cookie = cookieString;
                 };
-
-                Cookie.all = function all() {
+                Cookie.all = function () {
                     return this.parse(document.cookie);
                 };
-
-                Cookie.parse = function parse(str) {
+                Cookie.parse = function (str) {
                     var obj = {};
                     var pairs = str.split(/ *; */);
-                    var pair = void 0;
-
+                    var pair;
                     if (pairs[0] === '') {
                         return obj;
                     }
-
                     for (var i = 0; i < pairs.length; ++i) {
                         pair = pairs[i].split('=');
                         obj[this.decode(pair[0])] = this.decode(pair[1]);
                     }
-
                     return obj;
                 };
-
-                Cookie.encode = function encode(value) {
+                Cookie.encode = function (value) {
                     try {
                         return encodeURIComponent(value);
-                    } catch (e) {
+                    }
+                    catch (e) {
                         return null;
                     }
                 };
-
-                Cookie.decode = function decode(value) {
+                Cookie.decode = function (value) {
                     try {
                         return decodeURIComponent(value);
-                    } catch (e) {
+                    }
+                    catch (e) {
                         return null;
                     }
                 };
-
                 return Cookie;
             }());
-
-            _export('Cookie', Cookie);
+            exports_1("Cookie", Cookie);
         }
-    };
+    }
 });
+//# sourceMappingURL=cookie.js.map

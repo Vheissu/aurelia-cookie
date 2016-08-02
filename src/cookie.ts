@@ -1,3 +1,11 @@
+export interface OptionsInterface {
+    expires: any;
+    expiry?: number;
+    path: string;
+    domain: string;
+    secure: string;
+}
+
 export class Cookie {
     /**
      *
@@ -16,7 +24,7 @@ export class Cookie {
     /**
      * Set a cookie
      */
-    static set(name, value, options = {}) {
+    static set(name, value, options: OptionsInterface) {
         let str = `${this.encode(name)}=${this.encode(value)}`;
 
         if (value === null) {
