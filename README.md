@@ -3,8 +3,16 @@ A simplistic ES2015 class for working with cookies in Aurelia (or any modern Jav
 
 ## Installation
 
+**Jspm**
+
 ``` shell
 jspm install npm:aurelia-cookie
+```
+
+**Aurelia CLI/Webpack**
+
+``` shell
+npm install aurelia-cookie
 ```
 
 ## Setup
