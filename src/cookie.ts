@@ -1,9 +1,9 @@
 export interface OptionsInterface {
-    expires: any;
+    expires?: any;
     expiry?: number;
-    path: string;
-    domain: string;
-    secure: string;
+    path?: string;
+    domain?: string;
+    secure?: string;
 }
 
 export class Cookie {
