@@ -3,7 +3,7 @@
   "description": "A simplistic ES2015 class for working with cookies in Aurelia (or any modern Javascript application).",
   "version": "1.0.9",
   "main": "dist/commonjs/index.js",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/commonjs/index.d.ts",
   "scripts": {
     "build": "build.sh",
     "test": "node_modules/.bin/karma start test/karma.conf.js --single-run"
