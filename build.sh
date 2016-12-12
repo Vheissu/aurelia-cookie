@@ -16,7 +16,3 @@ node_modules/.bin/tsc --project tsconfig.amd.json
 
 ### System
 node_modules/.bin/tsc --project tsconfig.system.json
-
-
-## Create single .d.ts file
-cp dist/amd/index.d.ts dist/
