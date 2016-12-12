@@ -1,17 +1,17 @@
 export interface OptionsInterface {
-    expires: any;
+    expires?: Date;
     expiry?: number;
-    path: string;
-    domain: string;
-    secure: string;
+    path?: string;
+    domain?: string;
+    secure?: boolean;
 }
 
 export class Cookie {
     /**
-     *
-     * Get a cookie by its name
-     */
-    static get(name) {
+    *
+    * Get a cookie by its name
+    */
+    public static get(name) {
         let cookies = this.all();
 
         if (cookies && cookies[name]) {
@@ -22,8 +22,8 @@ export class Cookie {
     }
     
     /**
-     * Set a cookie
-     */
+    * Set a cookie
+    */
     static set(name, value, options: OptionsInterface) {
         let str = `${this.encode(name)}=${this.encode(value)}`;
 
@@ -32,8 +32,8 @@ export class Cookie {
         }
         
         /**
-         * Expiry date in hours
-         */
+        * Expiry date in hours
+        */
         if (options.expiry >= 0 && !options.expires) {
             let expires = new Date();
 
@@ -61,8 +61,8 @@ export class Cookie {
     }
     
     /**
-     * Deletes a cookie by setting its expiry date in the past
-     */
+    * Deletes a cookie by setting its expiry date in the past
+    */
     static delete(name, domain = null) {
         let cookieString = `${name} =;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 
@@ -74,8 +74,8 @@ export class Cookie {
     }
     
     /**
-     * Get all set cookies and return an array
-     */
+    * Get all set cookies and return an array
+    */
     static all() {
         return this.parse(document.cookie);
     }
