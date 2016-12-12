@@ -1,4 +1,4 @@
 {
   "name": "aurelia-cookie",
-  "main": "dist/aurelia-cookie.d.ts"
+  "main": "dist/amd/aurelia-cookie.d.ts"
 }

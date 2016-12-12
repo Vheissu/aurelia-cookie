@@ -1,19 +1,19 @@
-System.register(['./cookie'], function(exports_1, context_1) {
+System.register(["./aurelia-cookie"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var cookie_1;
     function configure(aurelia) {
-        aurelia.container.registerSingleton(cookie_1.Cookie, new cookie_1.Cookie());
+        aurelia.container.registerSingleton(aurelia_cookie_1.AureliaCookie, aurelia_cookie_1.AureliaCookie);
     }
     exports_1("configure", configure);
+    var aurelia_cookie_1;
     return {
-        setters:[
-            function (cookie_1_1) {
-                cookie_1 = cookie_1_1;
-            }],
-        execute: function() {
-            exports_1("Cookie", cookie_1.Cookie);
+        setters: [
+            function (aurelia_cookie_1_1) {
+                aurelia_cookie_1 = aurelia_cookie_1_1;
+            }
+        ],
+        execute: function () {
+            exports_1("AureliaCookie", aurelia_cookie_1.AureliaCookie);
         }
-    }
+    };
 });
-//# sourceMappingURL=index.js.map

@@ -1,7 +1,7 @@
-import {Cookie} from './cookie';
+import {AureliaCookie} from './aurelia-cookie';
 
-export function configure(aurelia) {
-    aurelia.container.registerSingleton(Cookie, new Cookie());
+export function configure(aurelia: any) {
+    aurelia.container.registerSingleton(AureliaCookie, AureliaCookie);
 }
 
-export {Cookie};
+export {AureliaCookie};

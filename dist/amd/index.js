@@ -1,9 +1,8 @@
-define(["require", "exports", './cookie'], function (require, exports, cookie_1) {
+define(["require", "exports", "./aurelia-cookie"], function (require, exports, aurelia_cookie_1) {
     "use strict";
-    exports.Cookie = cookie_1.Cookie;
+    exports.AureliaCookie = aurelia_cookie_1.AureliaCookie;
     function configure(aurelia) {
-        aurelia.container.registerSingleton(cookie_1.Cookie, new cookie_1.Cookie());
+        aurelia.container.registerSingleton(aurelia_cookie_1.AureliaCookie, aurelia_cookie_1.AureliaCookie);
     }
     exports.configure = configure;
 });
-//# sourceMappingURL=index.js.map

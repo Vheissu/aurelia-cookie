@@ -1,6 +1,5 @@
-import { Cookie } from './cookie';
+import { AureliaCookie } from './aurelia-cookie';
 export function configure(aurelia) {
-    aurelia.container.registerSingleton(Cookie, new Cookie());
+    aurelia.container.registerSingleton(AureliaCookie, AureliaCookie);
 }
-export { Cookie };
-//# sourceMappingURL=index.js.map
+export { AureliaCookie };

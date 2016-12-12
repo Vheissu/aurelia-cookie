@@ -1,20 +1,30 @@
 define(["require", "exports"], function (require, exports) {
     "use strict";
-    var Cookie = (function () {
-        function Cookie() {
+    var AureliaCookie = (function () {
+        function AureliaCookie() {
         }
-        Cookie.get = function (name) {
+        /**
+        *
+        * Get a cookie by its name
+        */
+        AureliaCookie.get = function (name) {
             var cookies = this.all();
             if (cookies && cookies[name]) {
                 return cookies[name];
             }
             return null;
         };
-        Cookie.set = function (name, value, options) {
+        /**
+        * Set a cookie
+        */
+        AureliaCookie.set = function (name, value, options) {
             var str = this.encode(name) + "=" + this.encode(value);
             if (value === null) {
                 options.expiry = -1;
             }
+            /**
+            * Expiry date in hours
+            */
             if (options.expiry >= 0 && !options.expires) {
                 var expires = new Date();
                 expires.setHours(expires.getHours() + options.expiry);
@@ -34,7 +44,10 @@ define(["require", "exports"], function (require, exports) {
             }
             document.cookie = str;
         };
-        Cookie.delete = function (name, domain) {
+        /**
+        * Deletes a cookie by setting its expiry date in the past
+        */
+        AureliaCookie.delete = function (name, domain) {
             if (domain === void 0) { domain = null; }
             var cookieString = name + " =;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
             if (domain) {
@@ -42,10 +55,13 @@ define(["require", "exports"], function (require, exports) {
             }
             document.cookie = cookieString;
         };
-        Cookie.all = function () {
+        /**
+        * Get all set cookies and return an array
+        */
+        AureliaCookie.all = function () {
             return this.parse(document.cookie);
         };
-        Cookie.parse = function (str) {
+        AureliaCookie.parse = function (str) {
             var obj = {};
             var pairs = str.split(/ *; */);
             var pair;
@@ -58,7 +74,7 @@ define(["require", "exports"], function (require, exports) {
             }
             return obj;
         };
-        Cookie.encode = function (value) {
+        AureliaCookie.encode = function (value) {
             try {
                 return encodeURIComponent(value);
             }
@@ -66,7 +82,7 @@ define(["require", "exports"], function (require, exports) {
                 return null;
             }
         };
-        Cookie.decode = function (value) {
+        AureliaCookie.decode = function (value) {
             try {
                 return decodeURIComponent(value);
             }
@@ -74,8 +90,7 @@ define(["require", "exports"], function (require, exports) {
                 return null;
             }
         };
-        return Cookie;
+        return AureliaCookie;
     }());
-    exports.Cookie = Cookie;
+    exports.AureliaCookie = AureliaCookie;
 });
-//# sourceMappingURL=cookie.js.map

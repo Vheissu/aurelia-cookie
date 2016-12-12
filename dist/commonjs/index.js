@@ -1,8 +1,7 @@
 "use strict";
-var cookie_1 = require('./cookie');
-exports.Cookie = cookie_1.Cookie;
+var aurelia_cookie_1 = require("./aurelia-cookie");
+exports.AureliaCookie = aurelia_cookie_1.AureliaCookie;
 function configure(aurelia) {
-    aurelia.container.registerSingleton(cookie_1.Cookie, new cookie_1.Cookie());
+    aurelia.container.registerSingleton(aurelia_cookie_1.AureliaCookie, aurelia_cookie_1.AureliaCookie);
 }
 exports.configure = configure;
-//# sourceMappingURL=index.js.map
