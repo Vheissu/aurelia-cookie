@@ -33,23 +33,23 @@ Just like you would any other plugin, simply instantiate it with the framework i
 aurelia.use
 .plugin('aurelia-cookie');
 ```   
-    
+
 ## Use
 
 ``` javascript
-import {Cookie} from 'aurelia-cookie';
+import {AureliaCookie} from 'aurelia-cookie';
 
 // Set a cookie
-Cookie.set('name', 'value', {
+AureliaCookie.set('name', 'value', {
     expiry: 1, // Expiry in hours, -1 for never expires or minimum 1 for one hour, 2 for two hours and so
     path: '', // Specify cookie path
     domain: '', // Domain restricted cookie
     secure: false // Either true or false
 });
 
-Cookie.get('name'); // Get a cookie value
+AureliaCookie.get('name'); // Get a cookie value
 
-Cookie.delete('name'); // Delete a cookie by name
+AureliaCookie.delete('name'); // Delete a cookie by name
 
-Cookie.all(); // Returns an array of all set cookies
+AureliaCookie.all(); // Returns an array of all set cookies
 ```
