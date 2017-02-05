@@ -63,11 +63,15 @@ export class AureliaCookie {
     /**
     * Deletes a cookie by setting its expiry date in the past
     */
-    static delete(name: string, domain = null) {
+    static delete(name: string, domain?: string, path?: string) {
         let cookieString = `${name} =;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 
         if (domain) {
             cookieString += `; domain=${domain}`;
+        }
+
+        if (path) {
+            cookieString += `; path=${path}`;
         }
 
         document.cookie = cookieString;

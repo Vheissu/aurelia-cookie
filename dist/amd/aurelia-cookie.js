@@ -47,11 +47,13 @@ define(["require", "exports"], function (require, exports) {
         /**
         * Deletes a cookie by setting its expiry date in the past
         */
-        AureliaCookie.delete = function (name, domain) {
-            if (domain === void 0) { domain = null; }
+        AureliaCookie.delete = function (name, domain, path) {
             var cookieString = name + " =;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
             if (domain) {
                 cookieString += "; domain=" + domain;
+            }
+            if (path) {
+                cookieString += "; path=" + path;
             }
             document.cookie = cookieString;
         };
