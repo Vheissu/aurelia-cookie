@@ -18,7 +18,7 @@ export declare class AureliaCookie {
     /**
     * Deletes a cookie by setting its expiry date in the past
     */
-    static delete(name: string, domain?: null): void;
+    static delete(name: string, domain?: string, path?: string): void;
     /**
     * Get all set cookies and return an array
     */
