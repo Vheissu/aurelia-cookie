@@ -4,6 +4,7 @@ export interface OptionsInterface {
     path?: string;
     domain?: string;
     secure?: boolean;
+    sameSite?: string;
 }
 
 export class AureliaCookie {
@@ -20,7 +21,7 @@ export class AureliaCookie {
 
         return null;
     }
-    
+
     /**
     * Set a cookie
     */
@@ -30,7 +31,7 @@ export class AureliaCookie {
         if (value === null) {
             options.expiry = -1;
         }
-        
+
         /**
         * Expiry date in hours
         */
@@ -57,9 +58,13 @@ export class AureliaCookie {
             str += '; secure';
         }
 
+        if (options.sameSite) {
+            str += `; samesite=${options.sameSite}`;
+        }
+
         document.cookie = str;
     }
-    
+
     /**
     * Deletes a cookie by setting its expiry date in the past
     */
@@ -76,7 +81,7 @@ export class AureliaCookie {
 
         document.cookie = cookieString;
     }
-    
+
     /**
     * Get all set cookies and return an array
     */
