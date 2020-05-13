@@ -11,7 +11,7 @@
     "typings": "dist/commonjs/index.d.ts",
     "scripts": {
         "lint": "cross-env tslint --project tsconfig.json",
-        "pretest": "cross-env npm run lint",
+        "pretest": "cross-env yarn lint",
         "test": "cross-env tsc && karma start --single-run",
         "test-watch": "concurrently \"./node_modules/.bin/tsc --watch\" \"./node_modules/.bin/karma start\"",
         "prebuild:amd": "cross-env rimraf dist/amd",
@@ -27,7 +27,7 @@
         "build:system": "cross-env tsc --project tsconfig.build.json --outDir dist/system --module system",
         "postbuild:system": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/system",
         "prebuild": "cross-env rimraf dist",
-        "build": "concurrently \"npm run build:amd\" \"npm run build:commonjs\" \"npm run build:es2015\" \"npm run build:system\""
+        "build": "concurrently \"yarn build:amd\" \"yarn build:commonjs\" \"yarn build:es2015\" \"yarn build:system\""
     },
     "repository": {
         "type": "git",
