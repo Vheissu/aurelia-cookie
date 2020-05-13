@@ -1,90 +1,70 @@
 {
-  "name": "aurelia-cookie",
-  "version": "1.0.10",
-  "description": "A simplistic ES2015 class for working with cookies in Aurelia (or any modern Javascript application).",
-  "keywords": [
-    "aurelia",
-    "cookie",
-    "storage"
-  ],
-  "main": "dist/commonjs/index.js",
-  "typings": "dist/commonjs/index.d.ts",
-  "scripts": {
-    "lint": "cross-env tslint --project tsconfig.json",
-    "pretest": "cross-env npm run lint",
-    "test": "cross-env tsc && karma start --single-run",
-    "test-watch": "concurrently \"./node_modules/.bin/tsc --watch\" \"./node_modules/.bin/karma start\"",
-    "prebuild:amd": "cross-env rimraf dist/amd",
-    "build:amd": "cross-env tsc --project tsconfig.build.json --outDir dist/amd --module amd",
-    "postbuild:amd": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/amd",
-    "prebuild:commonjs": "cross-env rimraf dist/commonjs",
-    "build:commonjs": "cross-env tsc --project tsconfig.build.json --outDir dist/commonjs --module commonjs",
-    "postbuild:commonjs": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/commonjs",
-    "prebuild:es2015": "cross-env rimraf dist/es2015",
-    "build:es2015": "cross-env tsc --project tsconfig.build.json --outDir dist/es2015 --module es2015",
-    "postbuild:es2015": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/es2015",
-    "prebuild:system": "cross-env rimraf dist/system",
-    "build:system": "cross-env tsc --project tsconfig.build.json --outDir dist/system --module system",
-    "postbuild:system": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/system",
-    "prebuild": "cross-env rimraf dist",
-    "build": "concurrently \"npm run build:amd\" \"npm run build:commonjs\" \"npm run build:es2015\" \"npm run build:system\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vheissu/aurelia-cookie.git"
-  },
-  "author": "Dwayne Charrington <dwaynecharrington@gmail.com>",
-  "license": "MIT",
-  "homepage": "https://github.com/Vheissu/aurelia-cookie#readme",
-  "bugs": {
-    "url": "https://github.com/Vheissu/aurelia-cookie/issues"
-  },
-  "jspm": {
-    "registry": "npm",
-    "jspmPackage": true,
-    "main": "index",
-    "format": "amd",
-    "directories": {
-      "dist": "dist/amd"
+    "name": "aurelia-cookie",
+    "version": "1.0.10",
+    "description": "A simplistic ES2015 class for working with cookies in Aurelia (or any modern Javascript application).",
+    "keywords": [
+        "aurelia",
+        "cookie",
+        "storage"
+    ],
+    "main": "dist/commonjs/index.js",
+    "typings": "dist/commonjs/index.d.ts",
+    "scripts": {
+        "lint": "cross-env tslint --project tsconfig.json",
+        "pretest": "cross-env npm run lint",
+        "test": "cross-env tsc && karma start --single-run",
+        "test-watch": "concurrently \"./node_modules/.bin/tsc --watch\" \"./node_modules/.bin/karma start\"",
+        "prebuild:amd": "cross-env rimraf dist/amd",
+        "build:amd": "cross-env tsc --project tsconfig.build.json --outDir dist/amd --module amd",
+        "postbuild:amd": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/amd",
+        "prebuild:commonjs": "cross-env rimraf dist/commonjs",
+        "build:commonjs": "cross-env tsc --project tsconfig.build.json --outDir dist/commonjs --module commonjs",
+        "postbuild:commonjs": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/commonjs",
+        "prebuild:es2015": "cross-env rimraf dist/es2015",
+        "build:es2015": "cross-env tsc --project tsconfig.build.json --outDir dist/es2015 --module es2015",
+        "postbuild:es2015": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/es2015",
+        "prebuild:system": "cross-env rimraf dist/system",
+        "build:system": "cross-env tsc --project tsconfig.build.json --outDir dist/system --module system",
+        "postbuild:system": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css dist/system",
+        "prebuild": "cross-env rimraf dist",
+        "build": "concurrently \"npm run build:amd\" \"npm run build:commonjs\" \"npm run build:es2015\" \"npm run build:system\""
     },
-    "peerDependencies": {
-
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Vheissu/aurelia-cookie.git"
     },
-    "dependencies": {
-
+    "author": "Dwayne Charrington <dwaynecharrington@gmail.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/Vheissu/aurelia-cookie#readme",
+    "bugs": {
+        "url": "https://github.com/Vheissu/aurelia-cookie/issues"
     },
-    "devDependencies": {}
-  },
-  "dependencies": {
-
-  },
-  "devDependencies": {
-    "@types/jasmine": "^2.5.38",
-    "aurelia-bootstrapper": "^1.0.1",
-    "aurelia-pal-browser": "^1.1.0",
-    "aurelia-polyfills": "^1.1.1",
-    "aurelia-testing": "^1.0.0-beta.2.0.0",
-    "babel-polyfill": "^6.20.0",
-    "concurrently": "^2.2.0",
-    "copyfiles": "^1.0.0",
-    "cross-env": "^2.0.1",
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.3.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-ie-launcher": "^1.0.0",
-    "karma-jasmine": "^1.1.0",
-    "karma-requirejs": "^1.1.0",
-    "requirejs": "^2.3.2",
-    "requirejs-text": "^2.0.12",
-    "rimraf": "^2.5.4",
-    "tslint": "^3.15.1",
-    "typescript": "^2.1.4"
-  },
-  "aurelia": {
-    "build": {
-      "resources": [
-
-      ]
+    "dependencies": {},
+    "devDependencies": {
+        "@types/jasmine": "^3.5.10",
+        "aurelia-bootstrapper": "^2.3.3",
+        "aurelia-pal-browser": "^1.1.0",
+        "aurelia-polyfills": "^1.1.1",
+        "aurelia-testing": "^1.0.0-beta.2.0.0",
+        "babel-polyfill": "^6.20.0",
+        "concurrently": "^5.2.0",
+        "copyfiles": "^2.2.0",
+        "cross-env": "^7.0.2",
+        "jasmine-core": "^3.5.0",
+        "karma": "^5.0.5",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-ie-launcher": "^1.0.0",
+        "karma-jasmine": "^3.1.1",
+        "karma-requirejs": "^1.1.0",
+        "requirejs": "^2.3.2",
+        "requirejs-text": "^2.0.12",
+        "rimraf": "^3.0.2",
+        "tslint": "^6.1.2",
+        "typescript": "^3.9.2"
+    },
+    "aurelia": {
+        "build": {
+            "resources": []
+        }
     }
-  }
 }

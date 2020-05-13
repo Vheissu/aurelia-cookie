@@ -4,4 +4,4 @@ export function configure(aurelia: any) {
     aurelia.container.registerSingleton(AureliaCookie, AureliaCookie);
 }
 
-export {AureliaCookie};
+export { AureliaCookie };
