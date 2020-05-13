@@ -1,6 +1,6 @@
 {
     "name": "aurelia-cookie",
-    "version": "1.0.10",
+    "version": "2.0.0",
     "description": "A simplistic ES2015 class for working with cookies in Aurelia (or any modern Javascript application).",
     "keywords": [
         "aurelia",
