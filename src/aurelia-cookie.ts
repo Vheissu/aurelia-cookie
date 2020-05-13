@@ -35,30 +35,30 @@ export class AureliaCookie {
         /**
         * Expiry date in hours
         */
-        if (options.expiry >= 0 && !options.expires) {
+        if (options?.expiry && options.expiry >= 0 && !options.expires) {
             let expires = new Date();
 
             expires.setHours(expires.getHours() + options.expiry);
             options.expires = expires;
         }
 
-        if (options.path) {
+        if (options?.path) {
             str += `; path=${options.path}`;
         }
 
-        if (options.domain) {
+        if (options?.domain) {
             str += `; domain=${options.domain}`;
         }
 
-        if (options.expires) {
+        if (options?.expires) {
             str += `; expires=${options.expires.toUTCString()}`;
         }
 
-        if (options.secure) {
+        if (options?.secure) {
             str += '; secure';
         }
 
-        if (options.sameSite) {
+        if (options?.sameSite) {
             str += `; samesite=${options.sameSite}`;
         }
 
